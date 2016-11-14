@@ -3,6 +3,7 @@ layout: post
 title:  "Big Endian Little Endian"
 date:   2014-05-01
 category: Bilgisayar-Bilimi
+redirect_from: "/big-endian-little-endian-karmasasi"
 ---
 
 Bittorrent kütüphanesini yazarken gönderdiğim verilerin karşı tarafa hatalı bir şekilde ulaştığını fark ettim. Öyle ki ben eş(peer) portunu 1600 olarak gönderirken o 16390 olarak algılıyordu bu işte bir terslik olmalıydı. Sonradan aklıma nasıl ki bizde sağdan sola veya soldan sağa okuma stili varsa işlemcilerde de aynısının olduğu geldi.

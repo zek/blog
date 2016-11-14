@@ -3,6 +3,7 @@ layout: post
 title:  "Ara Dil (Intermediate Language) - Kendi Dilini Tasarla"
 date:   2014-02-13
 category: Kendi-Dilini-Tasarla
+redirect_from: "/ara-dil-intermediate-language-kendi-dilini-tasarla"
 ---
 
 Ara dil, makine komut seti gibi yorumlayıcınıza özel komut seti tanımlanmasıdır. Assembly gösterimi gibi IL kodları IR (Intermediate Representation) ile gösterilir. Ara dil tasarımının AST (Abstract Syntax Tree) yapısına göre avantajlarını aşağıdaki şekilde sıralayabiliriz;

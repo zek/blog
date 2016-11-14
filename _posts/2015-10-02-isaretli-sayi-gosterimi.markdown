@@ -4,6 +4,7 @@ title:  "İşaretli Sayı Gösterimi"
 date:   2015-10-02
 categories: 
   - Bilgisayar-Bilimi
+redirect_from: "/isaretli-sayi-gosterimi"
 ---
 
 Bilgisayar biliminde 6 gibi bir sayıyı **0000 0110** şeklinde binary olarak kodlarken negatif hali olan -6 sayısını binary olarak gösterebilmek için çeşitli teknikler oluşturulmuştur. Bu tekniklerin bazıları aşağıdaki gibidir.

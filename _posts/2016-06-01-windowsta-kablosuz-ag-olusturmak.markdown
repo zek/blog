@@ -4,6 +4,7 @@ title:  "Windows'ta Kablosuz Ağ Oluşturmak"
 date:   2016-06-01
 categories:
   - Windows
+redirect_from: "/windowsta-kablosuz-ag-olusturmak"
 ---
 
 Program kurmadan aşağıdaki kodu yönetici iznine sahip cmd üzerinden çalıştırarak wifi ağı açmak mümkün.

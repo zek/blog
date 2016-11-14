@@ -7,6 +7,7 @@ categories:
   - Laravel
 customjs:
   - /assets/js/floating.js
+redirect_from: "/floating-point-notation"
 ---
 
 Bilgisayar biliminde **0.15625** gibi ondalıklı sayılar IEEE 754 standardına göre ikili(binary) olarak kodlanır. Bu gösterimde 32 bitlik bir alan 3 parçadan oluşur ve her parçanın bit alanı aşağıdaki gibidir.

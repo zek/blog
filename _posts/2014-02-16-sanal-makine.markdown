@@ -3,6 +3,7 @@ layout: post
 title:  "Sanal Makine - Kendi Dilini Tasarla"
 date:   2014-02-16
 category: Kendi-Dilini-Tasarla
+redirect_from: "/sanal-makine-kendi-dilini-tasarla"
 ---
 
 Sanal makine oluşturduğumuz ara dil çıktısını çalıştıracak olan modülümüzdür. Yapacağınız dile göre daha kompleks sanal makine yazmanız gerekebilir. Burada oluşturacağımız sanal makine stack adında nesnelerimizi tutacağımız bir dizi, o an işlediğimiz yani aktif olan nesneyi belirten current ve o anki komutumuzun adresini tutan **IP (Instruction Pointer)** değişkenlerinden oluşacaktır.

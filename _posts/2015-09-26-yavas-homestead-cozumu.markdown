@@ -5,6 +5,7 @@ date:   2015-09-26
 categories: 
   - PHP
   - Laravel
+redirect_from: "/yavas-homestead-cozumu"
 ---
 
 Laravel Homestead kullananların en büyük sıkıntısı sitenin oldukça yavaş çalışması. Bunun sebebi ise dosyaların paylaşımlı olması ve sunucunun bu dosyalara erişmeye çalışırken oldukça zaman kaybetmesi. 

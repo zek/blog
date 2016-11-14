@@ -4,6 +4,7 @@ title:  "VestaCP Üzerine Bir Günce"
 date:   2016-01-30
 categories:
   - Sunucu
+redirect_from: "/vestacp-uzerine-bir-gunce"
 ---
 
 Sunucuyu php-7 ye yükseltme denemem başarısız olduktan sonra sunucuyu baştan kurmaya karar verdim. Fakat bir türlü NS ayarlamasını yapamadım. Defalarca denemeden sonra hatanın sadece Ubuntu da olduğunu fark ettim. CentOS denedim fakat VestaCP CentOS üzerinde oldukça verimsiz çalışıyor.

@@ -3,6 +3,7 @@ layout: post
 title:  "Veri Türleri - Kendi Dilini Tasarla"
 date:   2014-02-12
 category: Kendi-Dilini-Tasarla
+redirect_from: "/veri-turleri-kendi-dilini-tasarla"
 ---
 Şimdiye kadar Lexer ve Parser'ımızı tamamladık ve sıra veri türlerini tanımlamaya geldi. Parserımız int, string ve boolean türlerini algılayabilecek hale geldi ve şimdi bunları nesne haline getireceğiz.
 
