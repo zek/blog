@@ -152,8 +152,3 @@ Aldığım çıktı ise:
 Projeyi indirmek için: [Make Your Own Language - 1](/assets/files/langdev.tar.gz)
 
 isWhite, isDigit gibi fonksiyonların bulunduğu [std.ascii kütüphanesi](http://dlang.org/phobos/std_ascii.html)
-
-
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
