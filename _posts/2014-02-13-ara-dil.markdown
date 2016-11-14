@@ -163,4 +163,4 @@ auto cstr2dstr(inout(char)* cstr){
 
 Artık IL modülümüz hazır. Sanal makine (virtual machine) ile birlikte IL kodlarımız çalışabilir hale gelecek ve çok basit bir programlama diline sahip olacağız.
 
-Projeyi indirmek için: [Make Your Own Language – 4](/files/langdev_4.tar.gz)
+Projeyi indirmek için: [Make Your Own Language – 4](/assets/files/langdev_4.tar.gz)
