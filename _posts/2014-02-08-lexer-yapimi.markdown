@@ -3,6 +3,7 @@ layout: post
 title:  "Lexer Yapımı - Kendi Dilini Tasarla"
 date:   2014-02-08 14:34:25
 category: Kendi-Dilini-Tasarla
+redirect_from: "/lexer-yapimi-kendi-dilini-tasarla"
 ---
 
 Önceki yazıda bir yorumlayıcının nelerden oluştuğu hakkında bahsetmiştim. Artık kendi dilimizi tasarlamanın zamanı geldi. Bunun için ilk önce bir lexer yapacağız.

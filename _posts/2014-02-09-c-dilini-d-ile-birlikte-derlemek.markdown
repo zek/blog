@@ -3,6 +3,7 @@ layout: post
 title:  "C dilini D ile birlikte derlemek"
 date:   2014-02-09
 category: Ddili
+redirect_from: "/c-dilini-d-ile-birlikte-derlemek"
 ---
 
 Uzun bir süredir bunu merak ediyordum dün [ddili.org forumunda](http://ddili.org/forum/post/10549;nocount) Ali Çehreli hocama bu soruyu yönelttim ve sağolsun nasıl yapılacağını gösterdi.

@@ -3,6 +3,7 @@ layout: post
 title:  "Matematiksel İfadelerin Ayrıştırılması - Kendi Dilini Tasarla"
 date:   2014-02-11
 category: Kendi-Dilini-Tasarla
+redirect_from: "/matematiksel-ifadelerin-ayristirilmasi-kendi-dilini-tasarla"
 ---
 Bir önceki yazıda dilimizi *a = 1* , *print()* gibi ifadeleri ayrıştırabilecek şekile getirmiştik. Şimdi matematiksel ifadeleri işlem önceliğini dikkate alarak ayrıştıracağız. Aşağıda *2 + 5 \* 4* şeklindeki bir ifadenin olası 2 farklı sonucunu göreceksiniz.
 

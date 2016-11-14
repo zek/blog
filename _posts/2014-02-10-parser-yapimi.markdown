@@ -3,6 +3,7 @@ layout: post
 title:  "Parser Yapımı - Kendi Dilini Tasarla"
 date:   2014-02-10
 category: Kendi-Dilini-Tasarla
+redirect_from: "/parser-yapimi-kendi-dilini-tasarla"
 ---
 Programlama dilimizi yazmaya devam ediyoruz. Bir önceki yazıdaki lexer'a **lparen**, **rparen**, **comma** türlerini ekledim. Siz de bu türleri lexerınıza ekleyin ki *print(1, 2)* gibi fonksiyonları çağırabilelim.
 

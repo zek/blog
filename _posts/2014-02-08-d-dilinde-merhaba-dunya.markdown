@@ -3,6 +3,7 @@ layout: post
 title:  "D Dilinde Merhaba Dünya"
 date:   2014-02-08
 category: DDili
+redirect_from: "/d-dilinde-merhaba-dunya"
 ---
 
 Malum yazılarımda sürekli olarak D dilinden bahsediyorum ve bunun için de D dilinde bir "merhaba dünya" programı yazmak iyi olacaktır.

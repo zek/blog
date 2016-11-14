@@ -3,6 +3,7 @@ layout: post
 title:  "Yorumlayıcılara Giriş - Kendi Dilini Tasarla"
 date:   2014-02-07
 category: Kendi-Dilini-Tasarla
+redirect_from: "/yorumlayicilara-giris"
 ---
 
 Bir önceki yazımda programlama dillerine giriş yaptık ve farklarından bahsettik. Şimdi ise bir yorumlayıcı nasıl çalışır, nasıl yapılır bunların üzerinde duracağız. Yorumlayıcı kaynak kodun yorumlanıp çalıştırılmasını temel alır. Elimizde belirli komutları içeren bir kod dizisi var ve yorumlayıcı bu kodu doğru bir şekilde analiz edecek ve kodları işletecek. Bir yorumlayıcının 3 temel aşaması vardır.
