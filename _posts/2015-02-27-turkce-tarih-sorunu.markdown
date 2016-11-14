@@ -3,6 +3,7 @@ layout: post
 title:  "PHP'de Türkçe Tarih Sorunu"
 date:   2015-02-27
 category: PHP
+redirect_from: "/turkce-tarih-sorunu"
 ---
 DigitalOcean gibi yabancı firmalardan alınan cloud/vps gibi hizmetlerde işletim sisteminde Türkçe locale bulunmayabiliyor.
 

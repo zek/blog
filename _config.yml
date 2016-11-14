@@ -1,5 +1,6 @@
 # Build settings
 gems:
+  - jekyll-redirect-from
   - jemoji
   - jekyll-paginate
 
