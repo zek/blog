@@ -23,12 +23,13 @@ author_image: "/assets/images/author.jpg"
 paginate:	5
 
 url: "http://talhadurmus.com" # the base hostname & protocol for your site
+enforce_ssl: talhadurmus.com
 baseurl: ""
 #used to display twitter cards
 twitter_handle: '@drtzack'
 
 #fill in disqus shortname to use disqus
-#disqus: disqus-shortname
+disqus: talhadurmus
 
 # social icons and sharing options
 social:
