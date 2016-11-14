@@ -3,6 +3,7 @@ layout: post
 title:  "Programlama Dilleri - Kendi Dilini Tasarla"
 date:   2014-02-05
 category: Kendi-Dilini-Tasarla
+redirect_from: "/programlama-dilleri-karsilastirmasi"
 ---
 
 Bilgisayarınızda çalışan her bir yazılım oyun veya cep telefonunuzda çalışan her bir uygulama aslında bir programlama dili ile yazılmış ortaya konmuştur. Bilgisayarın işlemcisi tarafından çalıştırılmak üzere bir takım kod parçaları yazılır. İşlemci yazılan bu kodları anlar ve çalıştırır. Bu kodları yazabilmek için ise binlerce hatta daha da fazla programlama dili yapılmış ve halen daha yapılmaya devam ediliyor.
