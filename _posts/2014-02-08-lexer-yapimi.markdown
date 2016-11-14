@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lexer Yapımı - Kendi Dilini Tasarla"
-date:   2014-08-02 14:34:25
+date:   2014-02-08 14:34:25
 category: Kendi-Dilini-Tasarla
 ---
 
@@ -41,7 +41,7 @@ Kaynak kodu parçalamak için **sonlu otomataları** kullanıyoruz.
 
 Sonlu otomatalar bir durumdan diğer duruma geçişi esas alır. Sistem 0 başlangıç durumundan başlar. Her durum için bir geçiş kümesi tanımlanır. Örneğin aşağıdaki çizimde ilk durum için **a-z** geçiş kümesidir. 0 dan 1 e geçiş yapabilmek için **a-z** harflerinden biri gelmek zorundadır. 1.duruma geçiş yaptığında ise **a-z** ve **0-9** karakterleri artık geçiş kümemiz oldu ve o karakterler geldiği sürece 1.durumda kalınır.
 
-![Lexer](/assets/article_images/2014-08-02-lexer-yapimi/lexer.png)
+![Lexer](/assets/article_images/2014-02-08-lexer-yapimi/lexer.png)
 
 Bizim yapacağımız sistemde bu küme dışında karakter gelirse kimi durumda hata verdireceğiz kimi durumda ise başlangıç durumu yani 0'a geri döneceğiz. Bunu koda dökersek eğer;
 {% highlight D %}
@@ -147,7 +147,7 @@ foreach(token;tokens){
 {% endhighlight %}
 Aldığım çıktı ise:
 
-![Konsol Çıktısı](/assets/article_images/2014-08-02-lexer-yapimi/output.png)
+![Konsol Çıktısı](/assets/article_images/2014-02-08-lexer-yapimi/output.png)
 
 Projeyi indirmek için: [Make Your Own Language - 1](/assets/files/langdev.tar.gz)
 
