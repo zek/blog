@@ -1,0 +1,166 @@
+---
+layout: post
+title:  "Ara Dil (Intermediate Language) - Kendi Dilini Tasarla"
+date:   2014-02-13
+category: Kendi-Dilini-Tasarla
+---
+
+Ara dil, makine komut seti gibi yorumlayıcınıza özel komut seti tanımlanmasıdır. Assembly gösterimi gibi IL kodları IR (Intermediate Representation) ile gösterilir. Ara dil tasarımının AST (Abstract Syntax Tree) yapısına göre avantajlarını aşağıdaki şekilde sıralayabiliriz;
+
+1. Bellekte tutulan veri boyutu daha az olur. Her bir yapıyı belirtmek için kurulan her bir nesne veya struct için yığın(heap) üzerinde alan tahsis edilmesi yerine tek bir bayt dizisi olarak tahsis edildiği için hafızada daha az yer kaplar ve hafıza içerisine dağılmaz.
+2. Taşınabilir kod. AST kodu sonradan tekrar okuyabilmek için **Object Serialization** işlemi yapmanız gerekecektir ki hem D dilinde henüz bununla ilgili yeterli bir kütüphane yok hemde oluşturulan dosya boyutu oldukça büyük oluyor ve hafızaya yüklenme süreleri daha uzun oluyor.
+3. Daha hızlı bir Çalışma Zamanı (Runtime). Her bir yapı için bir Çalıştır (Run) fonksiyonu tanımlamak ve o fonksiyonlara giriş, çıkış ve yeni bir stack oluşumu, parametrelerin stack üzerinden taşınması işlemleri vakit alacaktır. IL kodunda birebir işlemciyi taklit etme imkanımız olduğu için çok daha performanslıdır.
+4. Bazı sistemlerde parserdan AST çıktı verilip daha sonra bu çıktı IL koduna da dönüştürülebilir fakat AST yerine doğrudan IL koduna çevirilmesi performans açısından daha sağlıklı olacaktır.
+
+Sanal Makinemizde kullanmak üzere operandlarımızı tanımlıyoruz. Burada olası bir hata durumunda yanlış komut(instruction) çalışmaması makinenin sonlanması için hlt(halt) komutunu 0x00 olacak şekilde ilk komut olarak tanımladık.
+
+{% highlight D %}
+/**
+ * Operand Code listesi.
+ * ubyte olarak tanımladığımız için max 255 tane operand tanımlayabilirsiniz.
+*/
+enum il : ubyte{
+    hlt,
+    load, loadvar, definevar,
+    push, pushparam, call,
+    add, sub, div, mul,
+}
+{% endhighlight %}
+
+Kodlarımızı bir ubyte dizisi içerisinde saklayacağız ve nesnesinin silinmesi gibi olası bir hafıza (memory) sorununda sorunu önlemek için nesne adreslerimizi saklıyoruz. version kodundaki yorum satırı karakterlerini silerek bu özelliği aktif edebilirsiniz.
+
+{% highlight D %}
+/**
+ * Nesnelere ulaşılamaması durumunda onları hayatta tutmak için
+ * aşağıdaki version kodunu aktif edin.
+*/
+//version = save_objects;
+class IL{
+    ubyte[] codes;///IL kodlarımızın saklandığı dizi.
+    version(save_objects) RObject[] objects;///Olası nesne silinmesini engellemek için nesne dizimiz.
+    // Nesne yükleme fonksiyonumuzu oluşturuyoruz.
+
+  void load(RObject addr){
+        version(save_objects) objects ~= addr;
+        codes ~= il.load;
+        codes ~= (cast(ubyte*) &addr)[0..(void*).sizeof];
+    }
+//Load fonksiyonlarımızı tanımlıyoruz.
+
+  void load(int val){
+        load(new RNumber(val));
+    }
+    void load(bool val){
+        load(new RBoolean(val));
+    }
+    void load(string val){
+        load(new RString(val));
+    }
+{% endhighlight %}
+
+Ve aynı şekilde diğer yükleme fonksiyonlarımızı tanımlıyoruz.
+
+{% highlight D %}
+  /* Değişken yükle */
+    void loadvar(string name){
+        codes ~= il.loadvar;
+        codes ~= cast(ubyte[]) name;
+        codes ~= 0x00;///Bitiş karakteri
+    }
+    /* Değişken tanımlama */
+    void definevar(string name){
+        codes ~= il.definevar;
+        codes ~= cast(ubyte[]) name;
+        codes ~= 0x00;
+    }
+    /* Fonksiyon Çağır */
+    void call(size_t parameter_count){
+        codes ~= il.call;
+        codes ~= (cast(ubyte*) &parameter_count)[0..size_t.sizeof];
+    }
+    /* Stacke parametre yaz */
+    void pushparam(){
+        codes ~= il.pushparam;
+    }
+    /* Stacke yaz */
+    void push(){
+        codes ~= il.push;
+    }
+    /* Toplama */
+    void add(){
+        codes ~= il.add;
+    }
+    /* Çıkarma */
+    void sub(){
+        codes ~= il.sub;
+    }
+    /* Bölme */
+    void div(){
+        codes ~= il.div;
+    }
+    /* Çarpöa */
+    void mul(){
+        codes ~= il.mul;
+    }
+    /* Makineyi sonlandır */
+    void hlt(){
+        codes ~= il.hlt;
+    }
+    /* IL kodu yaz */
+    void newcode(il code){
+        codes ~= code;
+    }
+{% endhighlight %}
+
+Son olarak da debugging işlemimiz için yani çıkan hatalara karşı **operand code** ları görüntüleyebilmek için toString fonksiyonunu tanımlayacağız.
+
+{% highlight D %}
+  /* Assembly tarzı IR çıktısı verir. */
+    @property override string toString(){
+        string output;
+        auto ptr = codes.ptr;
+        start:
+        switch(*cast(il*) ptr){
+            case il.loadvar: ptr++;
+                string name = (cast(char*) ptr).cstr2dstr();
+                output ~= "loadvar %s\n".format(name);
+                ptr += name.length + 1;
+                goto start;
+            case il.definevar: ptr++;
+                string name = (cast(char*) ptr).cstr2dstr();
+                output ~= "definevar %s\n".format(name);
+                ptr += name.length + 1;
+                goto start;
+            case il.push, il.pushparam, il.sub, il.add, il.div, il.mul:
+                output ~= "%s\n".format(*cast(il*) ptr);
+                ptr++;
+                goto start;
+            case il.load: ptr++;
+                RObject addr = *cast(RObject*) ptr;
+                output ~= "load %s\n".format(addr);
+                ptr += (void*).sizeof;
+                goto start;
+            case il.call: ptr++;
+                size_t addr = *cast(size_t*) ptr;
+                output ~= "call %s\n".format(addr);
+                ptr += size_t.sizeof;
+                goto start;
+            case il.hlt: break;
+            default:
+                throw new Exception("Bilinmeyen operand code %s".format(*cast(il*) ptr));
+        }
+        return output;
+    }
+{% endhighlight %}
+
+String'leri C biçiminde (C style) sakladığımız için *cstr2dstr* adında bir fonksiyon tanımlıyoruz.
+
+{% highlight D %}
+auto cstr2dstr(inout(char)* cstr){
+    return cast(string) (cstr ? cstr[0 .. strlen(cstr)] : "");
+}
+{% endhighlight %}
+
+Artık IL modülümüz hazır. Sanal makine (virtual machine) ile birlikte IL kodlarımız çalışabilir hale gelecek ve çok basit bir programlama diline sahip olacağız.
+
+Projeyi indirmek için: [Make Your Own Language – 4](/files/langdev_4.tar.gz)
