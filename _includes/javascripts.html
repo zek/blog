@@ -42,4 +42,5 @@
 {% for js in page.customjs %}
 <script type="text/javascript" src="{{ js | prepend: site.baseurl  }}"></script>
 {% endfor %}
+{% include analytics.html %}
 
