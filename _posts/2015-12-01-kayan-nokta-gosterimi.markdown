@@ -3,8 +3,7 @@ layout: post
 title:  "Kayan Nokta Gösterimi (Floating Point)"
 date:   2015-12-01
 categories: 
-  - PHP
-  - Laravel
+- Bilgisayar-Bilimi
 customjs:
   - /assets/js/floating.js
 redirect_from: "/floating-point-notation"
